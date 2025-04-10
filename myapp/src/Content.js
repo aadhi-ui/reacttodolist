@@ -1,25 +1,25 @@
 import React from 'react'
-
+import { useState } from 'react'
 const Content = () => {
+    const [name,setName]=useState(' ');
     function Changethename(){
-        const names=['name','hlo', 'hlo there']
-        const  word  =Math.floor(Math.random()*3)
-        const name = names[word]
-        return name
+        const names=['aadhi','hlo', 'nick']
+        const  word  =Math.floor(Math.random()*names.length)
+        setName(names[word])
     }
 
     const handleclick = (name1) => {
         console.log(`thaks for visiting ${name1}`)
     }
-    const handleDoubleclick = (e) =>{
+   /* const handleDoubleclick = (e) =>{
             console.log(e.target)
-    }
+    }*/
 
     
   return (
   <main>
-    <p onDoubleClick={()=> handleclick('aadhi')}>this the word {Changethename()}.</p>
-    <button onClick={(e)=> handleDoubleclick(e)}>Click me</button>
+    <p onDoubleClick={()=> handleclick('aadhi')}>this the word {name}.</p>
+    <button onClick={Changethename}> Click me</button>
   </main>
   
   )
